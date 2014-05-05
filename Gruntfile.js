@@ -18,21 +18,19 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-		sass: {
+		compass: {
 			dist: {
-				files: [{
-					expand: true,
-					cwd: 'src/sass',
-					src: ['**/*.scss'],
-					dest: 'src/css',
-					ext: '.css'
-				}]
+				options: {              // Target options
+					sassDir: 'src/sass',
+					cssDir: 'src/css',
+					environment: 'production'
+				}
 			}
 		},
 		watch: {
 			css: {
 				files: '**/*.scss',
-				tasks: ['sass'],
+				tasks: ['compass'],
 				options: {
 					livereload: true,
 				},
@@ -43,7 +41,7 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-compress');
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('updateManifest', 'Aggiorna il file manifest', function (key, value) {

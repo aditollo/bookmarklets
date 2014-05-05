@@ -1,12 +1,12 @@
 {
-  "name": "bookmarklets",
-  "version": "0.0.2",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-cli": "~0.1.13",
-    "grunt-contrib-compress": "~0.8.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-compass": "~0.7.2"
-  }
+	"name": "bookmarklets",
+	"version": "0.0.2",
+	"devDependencies": {
+		"grunt": "~0.4.2",
+		"grunt-contrib-jshint": "~0.6.3",
+		"grunt-cli": "~0.1.13",
+		"grunt-contrib-compress": "~0.8.0",
+		"grunt-contrib-watch": "~0.6.1",
+		"grunt-contrib-compass": "~0.7.2"
+	}
 }

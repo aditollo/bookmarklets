@@ -1,6 +1,50 @@
+@import "compass/css3/transition";
+
 $button-size: 35px;
+$button-margin: 10px;
+$button-background: #6d8dbe;
 
 .button {
 	width: $button-size;
 	height: $button-size;
+	line-height: $button-size;
+	margin: $button-margin;
+	display: inline-block;
+	background-color: $button-background;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	cursor: pointer;
+
+	@include transition(backgroundColor 1s ease-in);
+
+	&:hover {
+		background-color: darken($button-background, 25%);
+		position: relative;
+	}
+
+	&[title]:hover:after {
+
+		content: attr(title);
+
+		padding: 4px 8px;
+
+		color: #333;
+
+		position: absolute;
+		left: 0; 
+		top: 110%;
+		white-space: nowrap; 
+		z-index: 20px;
+
+		border-radius: 5px;  
+
+		box-shadow: 0px 0px 4px #222;  
+
+		background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+		background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);  
+	}
+
 }
+
+

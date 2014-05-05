@@ -1,28 +1,29 @@
 {
-  "manifest_version": 2,
-  "name": "Bookmarklets",
-  "description": "Bookmarklets collection for thecorner",
-  "version": "0.0.2",
-  "content_scripts": [
-    {
-      "js": [
-        "/vendor/jquery.min.js",
-        "content.js"
-      ],
-      "run_at": "document_end",
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
-  "browser_action": {
-    "default_icon": "wand.png",
-    "default_title": "Click for the Magic",
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "http://*.yoox.net/",
-    "storage",
-    "tabs"
-  ]
+	"manifest_version": 2,
+	"name": "Bookmarklets",
+	"description": "Bookmarklets collection for thecorner",
+	"version": "0.0.2",
+	"content_scripts": [
+		{
+			"js": [
+				"/vendor/jquery.min.js",
+				"content.js"
+			],
+			"run_at": "document_end",
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"browser_action": {
+		"default_icon": "wand.png",
+		"default_title": "Click for the Magic",
+		"default_popup": "popup.html"
+	},
+	"options_page": "options.html",
+	"permissions": [
+		"http://*.yoox.net/",
+		"storage",
+		"tabs"
+	]
 }

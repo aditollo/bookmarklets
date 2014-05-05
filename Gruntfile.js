@@ -29,12 +29,22 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		watch: {
+			css: {
+				files: '**/*.scss',
+				tasks: ['sass'],
+				options: {
+					livereload: true,
+				},
+			},
+		},
 		updateManifest: {}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('updateManifest', 'Aggiorna il file manifest', function (key, value) {
         var manifestFile = "src/manifest.json";

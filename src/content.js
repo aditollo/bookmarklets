@@ -112,8 +112,8 @@
 		},
 		toggleDevice: function(){
 			//RESOURCEINFO basta per thecorner e shoescribe. Per gli altri siti servono anche MOBILEINFO e UI
-			if((_$Y.cookie.get('RESOURCEINFO') !== null && _$Y.cookie.get('RESOURCEINFO').indexOf('DEVICE=smartphone') > -1)
-				|| (_$Y.cookie.get('MOBILEINFO') !== null && _$Y.cookie.get('MOBILEINFO').indexOf('MOBILE=1') > -1)) {
+			if((_$Y.cookie.get('RESOURCEINFO') !== null && _$Y.cookie.get('RESOURCEINFO').indexOf('DEVICE=smartphone') > -1)||
+				(_$Y.cookie.get('MOBILEINFO') !== null && _$Y.cookie.get('MOBILEINFO').indexOf('MOBILE=1') > -1)) {
 				_$Y.cookie.del('RESOURCEINFO');
 				_$Y.cookie.del('MOBILEINFO');
 				if(_$Y.cookie.get('UI') !== null)

@@ -18,11 +18,23 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		sass: {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: 'src/sass',
+					src: ['**/*.scss'],
+					dest: 'src/css',
+					ext: '.css'
+				}]
+			}
+		},
 		updateManifest: {}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 
 	grunt.registerTask('updateManifest', 'Aggiorna il file manifest', function (key, value) {
         var manifestFile = "src/manifest.json";

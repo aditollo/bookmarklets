@@ -8,6 +8,7 @@
 			"js": [
 				"vendor/jquery.min.js",
 				"vendor/sugar.min.js",
+				"bookmarklets.js",
 				"content.js"
 			],
 			"run_at": "document_end",

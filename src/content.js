@@ -4,14 +4,14 @@
 		loginLogout:{
 			function: function() {
 				if(!ECPack.account.isLogged()){
-					ECPack.account.login('{loginLogout.name}' + '.' + _$Os.isoCode().toLowerCase() + '{loginLogout.host}', '{loginLogout.password}');
+					ECPack.account.login('{loginLogout.name}' + '.' + _$Os.isoCode().toLowerCase() + '@' + '{loginLogout.host}', '{loginLogout.password}');
 				} else {
 					ECPack.account.logout();
 				}
 			},
 			options: {
 				"loginLogout.name": 'test',
-				"loginLogout.host": '@yoox.com',
+				"loginLogout.host": 'yoox.com',
 				"loginLogout.password": 'password'
 			}
 		},
@@ -174,10 +174,12 @@
 			}
 			response = "comando " + request.greeting + " lanciato";
 			script = document.createElement('script');
-			script.textContent = $.trim("(" + actualCode + ")();").assign(greeting.options);
-			(document.head||document.documentElement).appendChild(script);
-			script.parentNode.removeChild(script);
-			sendResponse({farewell: response});
+			chrome.storage.local.get(greeting.options, function(items) {
+				script.textContent = $.trim("(" + actualCode + ")();").assign(items);
+				(document.head||document.documentElement).appendChild(script);
+				script.parentNode.removeChild(script);
+				sendResponse({farewell: response});
+			});
 		});
 
 })();

@@ -6,7 +6,7 @@
 	"content_scripts": [
 		{
 			"js": [
-				"/vendor/jquery.min.js",
+				"vendor/jquery.min.js",
 				"content.js"
 			],
 			"run_at": "document_end",

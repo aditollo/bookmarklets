@@ -4,14 +4,18 @@
 		loginLogout:{
 			function: function() {
 				if(!ECPack.account.isLogged()){
-					ECPack.account.login('{loginLogout.name}' + '.' + _$Os.isoCode().toLowerCase() + '@' + '{loginLogout.host}', '{loginLogout.password}');
+					var loginName = '{loginLogout.name}';
+					if (loginName.indexOf('%isoCode%') > -1) {
+						loginName = loginName.replace('%isoCode%', _$Os.isoCode().toLowerCase());
+					}
+//					ECPack.account.login('{loginLogout.name}' + '.' + _$Os.isoCode().toLowerCase() + '@' + '{loginLogout.host}', '{loginLogout.password}');
+					ECPack.account.login(loginName, '{loginLogout.password}');
 				} else {
 					ECPack.account.logout();
 				}
 			},
 			options: {
-				"loginLogout.name": 'test',
-				"loginLogout.host": 'yoox.com',
+				"loginLogout.name": 'test.%isoCode%@yoox.com',
 				"loginLogout.password": 'password'
 			}
 		},
@@ -161,11 +165,11 @@
 	};
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
-
 			var response;
 			var actualCode;
 			var script;
 			var greeting = bookmarklets[request.greeting];
+			var scriptText;
 			if(typeof greeting !== "undefined" && typeof greeting.function === "function"){
 				actualCode = greeting.function;
 			}
@@ -175,9 +179,11 @@
 			response = "comando " + request.greeting + " lanciato";
 			script = document.createElement('script');
 			chrome.storage.local.get(greeting.options, function(items) {
-				script.textContent = $.trim("(" + actualCode + ")();").assign(items);
+				scriptText = $.trim("(" + actualCode + ")();").assign(items);
+				script.textContent = scriptText;
 				(document.head||document.documentElement).appendChild(script);
 				script.parentNode.removeChild(script);
+//				chrome.tabs.executeScript(tabId, {code: "" + scriptText});
 				sendResponse({farewell: response});
 			});
 		});

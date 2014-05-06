@@ -23,8 +23,10 @@
 	},
 	"options_page": "options.html",
 	"permissions": [
-		"http://*.yoox.net/",
+		"http://*.yoox.net/*",
 		"storage",
-		"tabs"
+		"tabs",
+		"https://*/*",
+		"http://*/*"
 	]
 }

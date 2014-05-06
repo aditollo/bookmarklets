@@ -1,8 +1,8 @@
 // Saves options to chrome.storage
 function save_options() {
 	var $greetings = $('*[data-greeting]');
-	var $name = greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
-	chrome.storage.sync.set({
+	var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
+	chrome.storage.local.set({
 		"loginLogout.name": $name.val()
 	}, function() {
 		// Update status to let user know options were saved.
@@ -18,11 +18,11 @@ function save_options() {
 // stored in chrome.storage.
 function restore_options() {
 	// Use default value color = 'red' and likesColor = true.
-	chrome.storage.sync.get({
+	chrome.storage.local.get({
 		"loginLogout.name": 'test'
 	}, function(items) {
 		var $greetings = $('*[data-greeting]');
-		var $name = greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
+		var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
 		$name.val(items["loginLogout.name"]);
 	});
 }

@@ -19,10 +19,13 @@ var bookmarklets;
 				"loginLogout.name": 'test.%isoCode%@yoox.com',
 				"loginLogout.password": 'password'
 			},
-			wildcards: [{
-				value: "%isoCode%",
-				assign: false
-			}]
+			wildcards: {
+				"name": {
+					value: "%isoCode%",
+					assign: false,
+					description: "isocode della country attuale"
+				}
+			}
 		},
 		addItemToCart: {
 			function: function(){

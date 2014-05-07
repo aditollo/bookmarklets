@@ -1,9 +1,16 @@
+(function (){
+	"use strict";
+	var $loginLogoutGreeting = $('[data-greeting="loginLogout"]');
+
+
+
 // Saves options to chrome.storage
 function save_options() {
-	var $greetings = $('*[data-greeting]');
-	var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
+//	var $greetings = $('*[data-greeting]');
+//	var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
 	chrome.storage.local.set({
-		"loginLogout.name": $name.val()
+		"loginLogout.name": $loginLogoutGreeting.filter('[data-option="name"]').val(),
+		"loginLogout.password": $loginLogoutGreeting.filter('[data-option="password"]').val()
 	}, function() {
 		// Update status to let user know options were saved.
 		var status = document.getElementById('status');
@@ -19,13 +26,17 @@ function save_options() {
 function restore_options() {
 	// Use default value color = 'red' and likesColor = true.
 	chrome.storage.local.get({
-		"loginLogout.name": 'test.%isoCode%@yoox.com'
+		"loginLogout.name": 'test.%isoCode%@yoox.com',
+		"loginLogout.password": 'password'
 	}, function(items) {
-		var $greetings = $('*[data-greeting]');
-		var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
-		$name.val(items["loginLogout.name"]);
+//		var $greetings = $('*[data-greeting]');
+//		var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
+		$loginLogoutGreeting.filter('[data-option="name"]').val(items["loginLogout.name"]);
+		$loginLogoutGreeting.filter('[data-option="password"]').val(items["loginLogout.password"]);
 	});
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
 	save_options);
+
+})();

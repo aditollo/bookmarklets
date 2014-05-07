@@ -4,10 +4,22 @@
 	<title>bookmarklets - options</title>
 </head>
 <body>
-<label>
-	<input type="checkbox" id="like">
-	I like colors.
-</label><input type="text" id="text_loginLogout" data-option="name" data-greeting="loginLogout">
+<hr/>
+<section id="loginLogout_section">
+	<p>Login / Logout</p>
+	<label for="loginLogout_name">
+		Nome utente:
+	</label>
+	<input type="text" id="loginLogout_name" data-option="name" data-greeting="loginLogout">
+	<ul>wildcards:
+		<li>%isoCode% - isocode della country attuale</li></ul>
+	<label for="loginLogout_password">
+		password:
+	</label>
+	<input type="text" id="loginLogout_password" data-option="password" data-greeting="loginLogout">
+</section>
+<hr/>
+
 <div id="status"></div>
 <button id="save">Save</button>
 

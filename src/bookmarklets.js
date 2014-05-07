@@ -1,5 +1,7 @@
+var bookmarklets;
+(function (){
 	"use strict";
-	var bookmarklets = {
+	bookmarklets = {
 		loginLogout:{
 			function: function() {
 				if(!ECPack.account.isLogged()){
@@ -166,3 +168,5 @@
 			}
 		}
 	};
+
+})();

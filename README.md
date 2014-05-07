@@ -5,6 +5,9 @@ Tool per avere a portata di mano bookmarklets.
 
 ##Changelog
 
+###0.0.3
+- fix vari
+
 ###0.0.2
 - Scritta una struttura generica e inseriti vari script
 - css basilare per popup

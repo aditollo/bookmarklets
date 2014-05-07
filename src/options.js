@@ -25,10 +25,7 @@ function save_options() {
 // stored in chrome.storage.
 function restore_options() {
 	// Use default value color = 'red' and likesColor = true.
-	chrome.storage.local.get({
-		"loginLogout.name": 'test.%isoCode%@yoox.com',
-		"loginLogout.password": 'password'
-	}, function(items) {
+	chrome.storage.local.get(bookmarklets.loginLogout.options, function(items) {
 //		var $greetings = $('*[data-greeting]');
 //		var $name = $greetings.filter('*[data-greeting="loginLogout"][data-option="name"]');
 		$loginLogoutGreeting.filter('[data-option="name"]').val(items["loginLogout.name"]);

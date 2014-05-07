@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Bookmarklets",
   "description": "Bookmarklets collection for thecorner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "content_scripts": [
     {
       "js": [

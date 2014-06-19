@@ -160,15 +160,15 @@ var bookmarklets;
 						_$Y.cookie.set('UI',_$Y.cookie.get('UI').replace('DEVICE=desktop','DEVICE=smartphone'), 365);
 				}
 				location.reload();
-			},
-			setSrcMode: {
-				function: function(){
-					//TODO Testare
-					_$Y.cookie.set('SRCMODE', '1', 365);
-					location.reload();
-				}
-
 			}
+		},
+		setSrcMode: {
+			function: function(){
+				//TODO Testare
+				_$Y.cookie.set('SRCMODE', '1', 365);
+				location.reload();
+			}
+
 		}
 	};
 

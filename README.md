@@ -5,6 +5,9 @@ Tool per avere a portata di mano bookmarklets.
 
 ##Changelog
 
+###0.0.4
+- fix setSrcMode: ora funziona
+
 ###0.0.3
 - fix vari
 
